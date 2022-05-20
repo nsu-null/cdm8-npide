@@ -115,14 +115,16 @@ def main():
         sects[sects_filename].append({'start': hex_to_int(i[2].rstrip()), 'size': hex_to_int(i[3].rstrip()), 'name': i[0]})
     for i in abs_sects:
         sects_filename = i[0].rstrip()
-        if i[0] not in sects.keys():
+        if sects_filename not in sects.keys():
             sects[sects_filename] = []
         sects[sects_filename].append({'start': hex_to_int(i[1].rstrip()), 'size': hex_to_int(i[2].rstrip()), 'name': 'abs'})
 
     for i in line_byte_map.keys():
         for j in line_byte_map[i].keys():
-            for k in range(len(sects[i[:-4] + '.obj'])):
-                line_byte_map[i][j] += sects[i[:-4] + '.obj'][k]['start']
+            if i[:-4] + '.obj' in sects.keys():
+                for k in range(len(sects[i[:-4] + '.obj'])):
+                    if sects[i[:-4] + '.obj'][k]['name'] != 'abs':
+                        line_byte_map[i][j] += sects[i[:-4] + '.obj'][k]['start']
     finaldict = {
         'exec': args.filenames[0][:-4] + '.img',
         'sects': sects,

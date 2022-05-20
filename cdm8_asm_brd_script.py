@@ -50,7 +50,9 @@ def main():
         main_asm_file = args.file[0]
         if main_asm_file[:4] == '.asm':
             main_asm_file = main_asm_file[:4] + '.img'
-        os.execvp(python_bin, [python_bin, f'{script_loc}/cdm8_emu_debug.py', main_asm_file, '-y', f'{args.project_dir}/build/debug.cd8dbg.yaml'])
+        subprocess.run(
+            [python_bin, f'{script_loc}/cdm8_emu_debug.py', main_asm_file, '-y', f'{args.project_dir}/build/debug.cdm8dbg.yaml'],
+        )
 
 
 if __name__ == '__main__':

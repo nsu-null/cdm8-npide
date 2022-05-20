@@ -18,4 +18,4 @@ subprocess.call([f'{venvdir}/{local_venv_loc}/pip', 'install', 'pyyaml'])
 subprocess.call([f'{venvdir}/{local_venv_loc}/python', 'create_config.py', f'{venvdir}', f'{cfg_filename}'])
 
 with open("VENV_LOCATION", "w") as file:
-    file.write(f"{venvdir}/bin/python3")
+    file.write(f"{os.getcwd()}/{venvdir}/bin/python")

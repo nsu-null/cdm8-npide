@@ -24,7 +24,7 @@ def main():
             {
                 'python_file': f'{main_script_location}',
                 'name': 'CDM8 ASM project',
-                'entry_point': '',
+                'entry_point': 'a',
                 'ext': 'asm'
             }
         ],
@@ -32,7 +32,7 @@ def main():
             {
                 'python_file': f'{main_script_location}',
                 'name': 'CDM8 ASM project',
-                'entry_point': '',
+                'entry_point': 'a',
                 'ext': 'img'
             }
         ],
@@ -40,7 +40,7 @@ def main():
             {
                 'python_file': f'{main_script_location}',
                 'name': 'CDM8 ASM project',
-                'entry_point': '',
+                'entry_point': 'a',
                 'ext': 'asm'
             }
         ]

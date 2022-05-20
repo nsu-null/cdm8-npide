@@ -110,7 +110,7 @@ def main():
         r'From file: (.*\s*)\s*start:\s*([0-9abcdef]{2})\s*size:([0-9abcdef]{2}\s*)', link_result)
     for i in rel_sects:
         sects_filename = i[1].rstrip()
-        if i[1] not in sects.keys():
+        if sects_filename not in sects.keys():
             sects[sects_filename] = []
         sects[sects_filename].append({'start': hex_to_int(i[2].rstrip()), 'size': hex_to_int(i[3].rstrip()), 'name': i[0]})
     for i in abs_sects:
